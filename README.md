@@ -1,2 +1,1 @@
-# library-boilerplate
-Some boilerplate for js libraries
+# knockout-subscriptions-manager
