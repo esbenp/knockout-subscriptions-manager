@@ -7,13 +7,21 @@ gulp.task("umd", function() {
 	return gulp.src("src/js/*")
 		.pipe(umd({
 			dependencies: function(file) {
-				return [];
+				return [
+					{
+						name: "jQuery",
+						amd: "jquery",
+						cjs: "jquery",
+						global: "jQuery",
+						param: "$"
+					}
+				];
 			},
 			exports: function(file) {
-				return 'Library';
+				return 'SubscriptionsManager';
 			},
 			namespace: function(file) {
-				return 'Library';
+				return 'SubscriptionsManager';
 			}
 		}))
 		.pipe(gulp.dest("dist"));
