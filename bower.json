@@ -1,6 +1,6 @@
 {
   "name": "knockout-subscriptions-manager",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "homepage": "https://github.com/esbenp/knockout-subscriptions-manager",
   "license": "Apache 2.0",
   "ignore": [
@@ -11,7 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.3"
+    "jquery": ">=1.1.4"
   },
   "devDependencies": {
     "requirejs": "~2.1.16",
