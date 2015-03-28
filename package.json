@@ -1,6 +1,6 @@
 {
-  "name": "library-boilerplate",
-  "version": "0.1.0",
+  "name": "knockout-subscriptions-manager",
+  "version": "0.2.2",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/esbenp/library-boilerplate.git"
+    "url": "https://github.com/esbenp/knockout-subscriptions-manager.git"
   },
   "author": "",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/esbenp/library-boilerplate/issues"
+    "url": "https://github.com/esbenp/knockout-subscriptions-manager/issues"
   },
-  "homepage": "https://github.com/esbenp/library-boilerplate",
+  "homepage": "https://github.com/esbenp/knockout-subscriptions-manager",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-rename": "^1.2.0",

@@ -1,6 +1,6 @@
 {
   "name": "knockout-subscriptions-manager",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/esbenp/knockout-subscriptions-manager",
   "license": "Apache 2.0",
   "ignore": [
