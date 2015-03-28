@@ -9,10 +9,14 @@ A small manager to store and dispose multiple knockout.js subscriptions
 # Installation
 Can be installed via bower package
 
+```
 bower install --save knockout-subscriptions-manager
+```
 ... or by cloning the repository
 
+```
 git clone git@github.com:esbenp/knockout-subscriptions-manager.git
+```
 ... or by grabbing a zip of the latest release
 
 # Small example
