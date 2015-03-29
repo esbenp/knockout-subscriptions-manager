@@ -28,7 +28,7 @@ gulp.task("umd", function() {
 });
 
 gulp.task("production", ["umd"], function(){
-	return gulp.src("dist/*.js")
+	return gulp.src(["dist/*.js", "!dist/*.min.js"])
 		.pipe(rename({suffix: ".min"}))
 		.pipe(uglify())
 		.pipe(gulp.dest("dist"))
