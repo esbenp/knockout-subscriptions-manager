@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "karma start --single-run"
+    "test": "node_modules/bin/karma start --single-run"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
+    "karma-cli": "0.0.4",
     "karma-firefox-launcher": "^0.1.4",
     "karma-jasmine": "^0.3.5",
     "karma-requirejs": "^0.2.2",
