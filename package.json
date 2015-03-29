@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/esbenp/knockout-subscriptions-manager",
   "devDependencies": {
+    "bower": "^1.3.12",
     "gulp": "^3.8.11",
     "gulp-rename": "^1.2.0",
     "gulp-uglify": "^1.1.0",
