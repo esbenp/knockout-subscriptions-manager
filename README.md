@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/esbenp/knockout-subscriptions-manager.svg?branch=master)](https://travis-ci.org/esbenp/knockout-subscriptions-manager)
-
 # knockout-subscriptions-manager
 
 A small manager to store and dispose multiple knockout.js subscriptions
