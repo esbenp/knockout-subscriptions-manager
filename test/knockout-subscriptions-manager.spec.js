@@ -19,6 +19,11 @@ define(["jquery", "subscriptionsManager"], function(jQuery){
             expect(namespace.managerWithoutSettings.subscriptions[0]()).toEqual("subscription");
         });
 
+        it("should add a single subscription to the dictionary if a key is given", function(){
+            namespace.managerWithoutSettings.addSubscription(function(){return "subscription"}, "key");
+            expect(namespace.managerWithoutSettings.dictionary.key()).toEqual("subscription");
+        });
+
         it("should successfully add multiple subscriptions", function(){
             namespace.managerWithoutSettings.addSubscriptions([
                 function(){return "subscription 1";},
@@ -26,6 +31,19 @@ define(["jquery", "subscriptionsManager"], function(jQuery){
             ]);
             expect(namespace.managerWithoutSettings.subscriptions[0]()).toEqual("subscription 1");
             expect(namespace.managerWithoutSettings.subscriptions[1]()).toEqual("subscription 2");
+        });
+
+        it("should successfully dispose a valid subscription given by key", function(){
+            namespace.managerWithoutSettings.addSubscription({dispose: function(){return true}}, "key");
+            namespace.managerWithoutSettings.dispose("key");
+        });
+
+        it("should throw an error if disposal of dictionary subscription failed and option is set", function(){
+            var manager = new SubscriptionsManager({
+                throwErrorOnFailedDisposal: true
+            });
+            manager.addSubscription({}, "key");
+            expect(function(){manager.dispose("key")}).toThrowError(Error);
         });
 
         it("should successfully dispose an array of valid subscriptions", function(){

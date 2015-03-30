@@ -9,9 +9,10 @@
 }(this, function($) {
 "use strict";
 
-var previousSubscriptionManager = this.SubscriptionsManager;
+var previousSubscriptionManager = window.SubscriptionsManager;
 
 var SubscriptionsManager = function SubscriptionsManager(settings) {
+    this.dictionary = {};
     this.subscriptions = [];
 
     this.settings = $.extend({}, SubscriptionsManager.DEFAULT_SETTINGS, settings);
@@ -21,13 +22,23 @@ SubscriptionsManager.DEFAULT_SETTINGS = {
     throwErrorOnFailedDisposal: true
 };
 
-SubscriptionsManager.prototype.addSubscription = function addSubscription(subscription)
+SubscriptionsManager.prototype.addSubscription = function addSubscription(subscription, key)
 {
-    this.subscriptions.push(subscription);
+    if (subscription !== false) {
+        this.subscriptions.push(subscription);
+
+        if (key !== undefined) {
+            this.dictionary[key] = subscription;
+        }
+    }
 };
 
 SubscriptionsManager.prototype.addSubscriptions = function addSubscriptions(subscriptions)
 {
+    if (subscriptions === false) {
+        return;
+    }
+
     if (!subscriptions instanceof Array) {
         throw Error('knockout-subscriptions-manager@addSubscriptions: Was expecting an array of subscriptions');
     }
@@ -36,6 +47,16 @@ SubscriptionsManager.prototype.addSubscriptions = function addSubscriptions(subs
 
     return this;
 };
+
+SubscriptionsManager.prototype.dispose = function dispose(key)
+{
+    var listener = this.dictionary[key];
+    if (this.settings.throwErrorOnFailedDisposal && (listener === undefined || !(typeof listener.dispose === "function"))) {
+        throw Error('knockout-subscriptions-manager@dispose: A valid listener with key ' + key + ' was not found.');
+    }
+
+    listener.dispose();
+}
 
 SubscriptionsManager.prototype.disposeAll = function disposeAll()
 {
@@ -53,7 +74,7 @@ SubscriptionsManager.prototype.disposeAll = function disposeAll()
 
 SubscriptionsManager.noConflict = function noConflict()
 {
-    scope.SubscriptionsManager = previousSubscriptionManager;
+    window.SubscriptionsManager = previousSubscriptionManager;
     return SubscriptionsManager;
 }
 return SubscriptionsManager;
